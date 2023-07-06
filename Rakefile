@@ -2,10 +2,10 @@
 
 $stdout.sync = true
 
-task default: %i[static_analysis integration]
+task default: [:static_analysis, :integration]
 
 desc 'Run Tests - Unit & Rubocop'
-task static_analysis: %i[cop unit]
+task static_analysis: [:cop, :unit]
 
 # Define rubocop
 desc 'Ruby code style check - Rubocop'
