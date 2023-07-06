@@ -13,15 +13,19 @@ provisioner:
 verifier:
   name: inspec
 
+transport:
+  connection_timeout: 1440
+
 platforms:
   - name: windows2016
-  - driver:
+    driver:
+      box: windows2016
       vm_hostname: windows2016
 
 suites:
   - name: default
     run_list:
-      - recipe[test_cookbook]
+      - recipe[test_cookbook::default]
     verifier:
       inspec_tests:
         - test/integration/default
